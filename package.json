@@ -7,9 +7,6 @@
     "preview": "nuxt preview"
   },
   "devDependencies": {
-    "nuxt": "3.0.0-rc.6"
-  },
-  "dependencies": {
     "@babel/eslint-parser": "^7.18.9",
     "@nuxtjs/eslint-config": "^10.0.0",
     "eslint": "^8.21.0",
@@ -19,5 +16,10 @@
     "prettier": "^2.7.1",
     "sass": "^1.54.1",
     "sass-loader": "^13.0.2"
+  },
+  "dependencies": {
+    "nuxt": "3.0.0-rc.6",
+    "@vueuse/core": "^9.1.0",
+    "vue": "^3.2.37"
   }
 }

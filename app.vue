@@ -1,11 +1,11 @@
 <template>
-  <div>
-    <NuxtWelcome />
-  </div>
+  <nuxt-layout>
+    <product-list/>
+  </nuxt-layout>
 </template>
 
-<style lang="scss" scoped>
-div {
-  background: rebeccapurple;
-}
-</style>
+<script setup>
+import ProductList from "./components/product/ProductList.vue";
+</script>
+
+
