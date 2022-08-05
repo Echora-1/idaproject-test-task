@@ -108,13 +108,17 @@ function resetForm(form) {
 }
 
 function formattedFormData(form) {
-  return Object.keys(form).reduce((formattedForm, key) => {
-    if (key === 'valid') {
+  const id = String(Math.random()).split(".")[1]
+  return Object.keys(form).reduce(
+    (formattedForm, key) => {
+      if (key === 'valid') {
+        return formattedForm
+      }
+      formattedForm[key] = form[key].value
       return formattedForm
-    }
-    formattedForm[key] = form[key].value
-    return formattedForm
-  }, {})
+    },
+    { id }
+  )
 }
 
 function submit(form) {

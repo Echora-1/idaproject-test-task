@@ -25,11 +25,11 @@
 import BaseFormWrap from '../components/base/BaseFormWrap'
 import FormProductAdd from '../components/forms/FormProductAdd'
 import BaseButton from '../components/base/BaseButton'
-import { ref } from 'vue'
+import { ref } from "vue";
 import { onClickOutside } from '@vueuse/core/index'
 import { useProductListStore } from '../store'
-
 const productListStore = useProductListStore()
+
 
 let showSidebarForm = ref(false)
 const sidebarForm = ref(null)
@@ -44,9 +44,11 @@ function closeSidebarForm() {
 
 function addProduct(product) {
   productListStore.addProduct(product)
+  localStorage.setItem('productList', JSON.stringify(productListStore.getProductList))
 }
 
 onClickOutside(sidebarForm, () => closeSidebarForm())
+
 </script>
 
 <style lang="scss" scoped>

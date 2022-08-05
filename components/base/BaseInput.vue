@@ -33,8 +33,8 @@
         @input="inputHandler"
         @blur="blurHandler"
       />
-      <p class="error-text">{{ errorText }}</p>
     </div>
+    <p class="error-text">{{ errorText }}</p>
   </div>
 </template>
 
@@ -110,6 +110,7 @@ const errorText = computed(() => {
     font-size: 10px;
     line-height: 13px;
     letter-spacing: -0.02em;
+    margin-bottom: 5px;
   }
 
   &__wrapper {
@@ -118,7 +119,7 @@ const errorText = computed(() => {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     position: relative;
-    margin: 2px 0 15px;
+    margin: 2px 0 2px;
     transition: all 0.3s;
 
     &:hover {
@@ -161,7 +162,7 @@ const errorText = computed(() => {
     }
 
     .error-text {
-      display: block;
+      opacity: 1;
     }
   }
 
@@ -186,12 +187,12 @@ const errorText = computed(() => {
 
 .error-text {
   color: #ff8484;
-  position: absolute;
   bottom: -24px;
-  left: 0;
   font-size: 8px;
   line-height: 10px;
   letter-spacing: -0.02em;
-  display: none;
+  opacity: 0;
+  margin: 0;
+  min-height: 10px;
 }
 </style>
