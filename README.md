@@ -1,8 +1,8 @@
 # :pencil: Описание запуска проекта
 
 ```bash
-# yarn
+# 1)
 npm install
 
-# npm
+# 2)
 npm run dev
