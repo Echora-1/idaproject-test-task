@@ -27,6 +27,9 @@ import FormProductAdd from '../components/forms/FormProductAdd'
 import BaseButton from '../components/base/BaseButton'
 import { ref } from 'vue'
 import { onClickOutside } from '@vueuse/core/index'
+import { useProductListStore } from '../store'
+
+const productListStore = useProductListStore()
 
 let showSidebarForm = ref(false)
 const sidebarForm = ref(null)
@@ -40,7 +43,7 @@ function closeSidebarForm() {
 }
 
 function addProduct(product) {
-  console.log(product)
+  productListStore.addProduct(product)
 }
 
 onClickOutside(sidebarForm, () => closeSidebarForm())
@@ -52,7 +55,7 @@ onClickOutside(sidebarForm, () => closeSidebarForm())
     display: flex;
     gap: 16px;
 
-    @media (max-width: 767px) {
+    @media (max-width: 1000px) {
       flex-direction: column;
       gap: unset;
     }
@@ -67,7 +70,7 @@ onClickOutside(sidebarForm, () => closeSidebarForm())
     max-width: 260px;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 1000px) {
     position: relative;
     width: 100%;
   }
@@ -78,7 +81,7 @@ onClickOutside(sidebarForm, () => closeSidebarForm())
 
     &::before,
     &::after {
-      content: "";
+      content: '';
       width: 15px;
       height: 2px;
       background: #fffefb;
@@ -95,7 +98,7 @@ onClickOutside(sidebarForm, () => closeSidebarForm())
       transform: translate(-50%, -50%) rotate(90deg);
     }
 
-    @media (max-width: 767px) {
+    @media (max-width: 1000px) {
       display: block;
       border-radius: unset;
       width: 30px;
@@ -120,7 +123,7 @@ onClickOutside(sidebarForm, () => closeSidebarForm())
     position: sticky;
     top: 24px;
 
-    @media (max-width: 767px) {
+    @media (max-width: 1000px) {
       width: calc(100vw - 32px);
       max-width: 332px;
       position: absolute;
@@ -134,7 +137,7 @@ onClickOutside(sidebarForm, () => closeSidebarForm())
     }
 
     &--show {
-      @media (max-width: 767px) {
+      @media (max-width: 1000px) {
         transform: translateX(0);
       }
     }

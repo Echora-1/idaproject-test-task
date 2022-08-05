@@ -101,13 +101,13 @@ onClickOutside(baseDropdown, () => hideDropdown())
 
   &:hover {
     .base-dropdown__wrapper {
-      border-color: #3f3f3f4D;
+      border-color: #3f3f3f4d;
     }
   }
 
   &--focused {
     .base-dropdown__wrapper {
-      border-color: #3f3f3f4D;
+      border-color: #3f3f3f4d;
     }
   }
 
@@ -127,7 +127,7 @@ onClickOutside(baseDropdown, () => hideDropdown())
 
   &__dropdown {
     width: 100%;
-    background-image: url("../../assets/images/rectangle.svg");
+    background-image: url('../../assets/images/rectangle.svg');
     background-repeat: no-repeat;
     background-position: center right 16px;
     cursor: pointer;
@@ -137,7 +137,7 @@ onClickOutside(baseDropdown, () => hideDropdown())
     outline: none;
     overflow: hidden;
     text-overflow: ellipsis;
-    color: #B4B4B4;
+    color: #b4b4b4;
     white-space: nowrap;
     padding: 10px 26px 10px 14px;
     border-radius: 4px;
@@ -150,7 +150,7 @@ onClickOutside(baseDropdown, () => hideDropdown())
     position: absolute;
     z-index: 1;
     margin-top: 10px;
-    border: 1px solid #3f3f3f4D;
+    border: 1px solid #3f3f3f4d;
     border-radius: 4px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
@@ -165,7 +165,7 @@ onClickOutside(baseDropdown, () => hideDropdown())
     line-height: 15px;
 
     &:hover {
-      background: #B4B4B466;
+      background: #b4b4b466;
     }
   }
 }

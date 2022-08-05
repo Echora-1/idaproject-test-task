@@ -1,6 +1,9 @@
 <template>
   <button
-    :class="['base-button', { 'base-button--disabled': disable, 'base-button--primary': primary  }]"
+    :class="[
+      'base-button',
+      { 'base-button--disabled': disable, 'base-button--primary': primary },
+    ]"
     :disabled="disable"
   >
     <slot></slot>
