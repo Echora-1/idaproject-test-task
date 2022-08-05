@@ -20,6 +20,7 @@
 <script setup>
 import BaseDeleteButton from '../base/BaseDeleteButton'
 
+const emit = defineEmits(['delete'])
 const props = defineProps({
   product: {
     type: Object,
@@ -28,7 +29,7 @@ const props = defineProps({
 })
 
 function deleteProduct() {
-  console.log('delete')
+  emit('delete', props.product.id)
 }
 </script>
 
