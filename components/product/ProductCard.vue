@@ -3,9 +3,8 @@
     <base-delete-button class="product-card__delete" @click="deleteProduct" />
     <img
       class="product-card__image"
-      :src="product?.img"
-      alt="product image"
-      width="100%"
+      :src="product?.image"
+      :alt="product?.name"
       height="200"
     />
     <div class="product-card__info">
@@ -64,6 +63,7 @@ function deleteProduct() {
     object-fit: contain;
     border-radius: 4px 4px 0 0;
     overflow: hidden;
+    max-width: 100%;
   }
 
   &__info {

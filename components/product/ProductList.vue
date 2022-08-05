@@ -9,20 +9,26 @@
         id="city"
       />
     </div>
-    <div class="product-list__main">
+    <transition-group name="list" tag="div" :class="'product-list__main'">
       <product-card
         class="product-list__card"
-        v-for="(product, index) in products"
+        v-for="(product, index) in productList"
         :key="`${product.name}${index}`"
         :product="product"
       />
-    </div>
+      <p class="product-list__empty-text" v-show="!productList.length">
+        Список товаров пуст
+      </p>
+    </transition-group>
   </div>
 </template>
 
 <script setup>
 import ProductCard from './ProductCard'
 import BaseDropdown from '../base/BaseDropdown'
+import { useProductListStore } from '../../store'
+import { computed } from 'vue'
+
 const sortType = [
   {
     id: 1,
@@ -41,71 +47,10 @@ const sortType = [
     name: 'По наименованию',
   },
 ]
-const products = [
-  {
-    img: 'https://cdnstatic.rg.ru/uploads/images/153/10/69/1.jpg',
-    name: 'Наименование товара',
-    description:
-      'Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк',
-    price: '10 000',
-  },
-  {
-    img: 'https://cdnstatic.rg.ru/uploads/images/153/10/69/1.jpg',
-    name: 'Наименование товара',
-    description:
-      'Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк',
-    price: '10 000',
-  },
-  {
-    img: 'https://cdnstatic.rg.ru/uploads/images/153/10/69/1.jpg',
-    name: 'Наименование товара',
-    description:
-      'Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк',
-    price: '10 000',
-  },
-  {
-    img: 'https://cdnstatic.rg.ru/uploads/images/153/10/69/1.jpg',
-    name: 'Наименование товара',
-    description:
-      'Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк',
-    price: '10 000',
-  },
-  {
-    img: 'https://cdnstatic.rg.ru/uploads/images/153/10/69/1.jpg',
-    name: 'Наименование товара',
-    description:
-      'Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк',
-    price: '10 000',
-  },
-  {
-    img: 'https://cdnstatic.rg.ru/uploads/images/153/10/69/1.jpg',
-    name: 'Наименование товара',
-    description:
-      'Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк',
-    price: '10 000',
-  },
-  {
-    img: 'https://cdnstatic.rg.ru/uploads/images/153/10/69/1.jpg',
-    name: 'Наименование товара',
-    description:
-      'Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк',
-    price: '10 000',
-  },
-  {
-    img: 'https://cdnstatic.rg.ru/uploads/images/153/10/69/1.jpg',
-    name: 'Наименование товара',
-    description:
-      'Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк',
-    price: '10 000',
-  },
-  {
-    img: 'https://cdnstatic.rg.ru/uploads/images/153/10/69/1.jpg',
-    name: 'Наименование товара',
-    description:
-      'Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк',
-    price: '10 000',
-  },
-]
+
+const productListStore = useProductListStore()
+
+const productList = computed(() => productListStore.getProductList)
 </script>
 
 <style lang="scss" scoped>
@@ -142,5 +87,31 @@ const products = [
       width: 100%;
     }
   }
+
+  &__empty-text {
+    font-size: 26px;
+    line-height: 125%;
+    display: inline-block;
+    margin: 16px auto;
+    text-align: center;
+  }
+}
+
+.list-enter-active,
+.list-leave-active {
+  transition: all 1s;
+}
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
+</style>
+
+<style>
+.product-list__main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 </style>
